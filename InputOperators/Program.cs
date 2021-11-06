@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace InputOperators
 {
@@ -13,20 +12,23 @@ namespace InputOperators
            
             string input = Console.ReadLine();
 
-            Console.WriteLine(@"Enter which operations to do on the supplied text, ‘1’ for a duplicate character
+            Console.WriteLine(@"Enter which operators to do on the supplied text, ‘1’ for a duplicate character
                                 check, ‘2’ to count the number of vowels, ‘3’ to check if there are more vowels or non vowels, or any
                                 combination of ‘1’, ‘2’ and ‘3’ to perform multiple checks.");
-            string operations = Console.ReadLine();
 
-            DuplicateCheck(input.ToLower().ToCharArray(), operations);
-            VowelsCount(input.ToLower().ToCharArray(), operations);
-            VowelsCountCompare(input.ToLower(), operations);
+            string operators = Console.ReadLine();
+
+            DuplicateCheck(input.ToLower().ToCharArray(), operators);
+            VowelsCount(input.ToLower().ToCharArray(), operators);
+            VowelsCountCompare(input.ToLower(), operators);
+
+            Console.ReadLine();
 
         }
         
-        public static void DuplicateCheck(char[] input, string operations)
+        public static void DuplicateCheck(char[] input, string operators)
         {
-            if (operations.Contains("1"))
+            if (operators.Contains("1"))
             {
                 string duplicates = string.Empty;
                 int count;
@@ -57,9 +59,9 @@ namespace InputOperators
             }
         }
 
-        public static void VowelsCount(char[] input, string operations)
+        public static void VowelsCount(char[] input, string operators)
         {
-            if (operations.Contains("2"))
+            if (operators.Contains("2"))
             {
                 List<char> vowels = new List<char>() { 'a', 'e', 'i', 'o', 'u' };
                 string inputVowels = string.Empty;
@@ -82,9 +84,9 @@ namespace InputOperators
             }
         }
 
-        public static void VowelsCountCompare(string input, string operations)
+        public static void VowelsCountCompare(string input, string operators)
         {
-            if (operations.Contains("3"))
+            if (operators.Contains("3"))
             {
                 string duplicates = string.Empty;
                 List<char> vowels = new List<char>() { 'a', 'e', 'i', 'o', 'u' };
